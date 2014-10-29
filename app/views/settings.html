@@ -2,6 +2,9 @@
 <div class="pull-middle">
 	<h1 class="center">FUTU<span class="smaller">DASH</span></h1>
 	<form class="center">
+
+		
+
 		<div class="set" ng-repeat="(key,setting) in settings track by key">
 
 			<span  ng-if="!isObjectOrArray(settings[key])">
@@ -30,6 +33,14 @@
 		</div>
 		<br />
 		<button class="btn btn-outline btn-lg btn-block" type="submit" ng-click="save()"> Save settings <i class="icon ion-ios7-checkmark-outline"></i> </button>
+		<br />
+		<hr>
+		<br />
+		<button class="btn btn-outline btn-lg btn-block" type="button" ng-click="restore()"> Restore original <i class="icon ion-ios7-undo-outline"></i></button>
+
+		
+
 	</form>
-</form>
 </div>
+
+<a class="btn btn-outline" href="#/"><i class="icon ion-ios7-arrow-left"></i> Back to dashboard</a>

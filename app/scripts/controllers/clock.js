@@ -5,61 +5,46 @@
  * @name futudashApp.controller:ClockCtrl
  * @description
  * # ClockCtrl
- * Clock with progressbar.js, not used atm
+ * Clock with progressbar.js
  */
  angular.module('futudashApp')
- .controller('ClockCtrl', function ($scope) {
+ .controller('ClockCtrl', function ($scope,$interval) {
+
+
 
  	var wrap = document.getElementById('clock');
- 	wrap.innerHTML = '<div id="clock-hours"></div>';
  	wrap.innerHTML += '<div id="clock-minutes"></div>';
+ 	var element = document.getElementById('clock-minutes');
 
- 	var element = document.getElementById('clock-minutes'),
- 	hourel  = document.getElementById('clock-hours');
+ 	//element.innerHTML = '<header id="clock-seconds"></header>';
+ 	//var textElement = document.getElementById('clock-seconds');
 
- 	element.innerHTML = '<header id="clock-seconds"></header>';
- 	var textElement = document.getElementById('clock-seconds');
-
- 	var hours = new ProgressBar.Circle(hourel, {
- 		strokeWidth: 1,
+ 	$scope.minutes =  new ProgressBar.Circle(element, {
+ 		strokeWidth: 3,
  		duration: 200,
- 		color: "#000",
- 		trailColor: "rgba(255,255,255,.05)"
- 	}),minutes =  new ProgressBar.Circle(element, {
- 		strokeWidth: 2,
- 		duration: 200,
- 		color: "#42B049",
- 		trailColor: "transparent"
+ 		color: "rgba(255,255,255,.999)",
+ 		trailColor: "rgba(255,255,255,.099)"
  	});
 
-
- 	$interval(function() {
- 		var now = new Date(),
+ 	var updateTime = function(){
+	   	var now = new Date(),
  		second = now.getSeconds(),
  		minute = now.getMinutes(),
  		hour  = now.getHours(),
  		hour = hour >= 12 ? hour-12 : hour;
 
+ 		$scope.minutes.animate(minute / 60, function() {
+	        //textElement.innerHTML = second;
+	   	});
 
- 		hours.animate((hour+minute/60) / 12, function() {});
- 		minutes.animate(minute / 60, function() {
-	            //textElement.innerHTML = second;
-	          });
-
- 		$scope.clock = getCurrentTime();
+ 		$scope.clock = moment(new Date()).format('HH:mm')
  		$scope.date = now;
 
- 	}, 10000);
- 	var getCurrentTime = function(){
- 		var now = new Date(),
- 		hours = now.getHours(),
- 		minutes = now.getMinutes();
+	}
 
- 		if(hours < 10) hours = '0'+hours;
- 		if(minutes < 10) minutes = '0'+minutes;
- 		return hours + ':' + minutes;
- 	}
 
+ 	$interval(updateTime, 1000 * 1);
+ 	updateTime();
 
 
 

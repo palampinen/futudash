@@ -14,8 +14,8 @@ angular.module('futudashApp')
 
   	$scope.title = Settings.get().name;
 
-		var HOURS = 7,		// last hours
-  			INTERVAL = 1; // update interval (min)
+		var HOURS = 7,	  // show X last hours
+  			INTERVAL = 3; // update interval (min)
 
 		// last x hours in array
 		var getLastHours = function(x){
@@ -118,7 +118,10 @@ angular.module('futudashApp')
 		            $scope.flowChartdata.labels = getLastHours(HOURS);
 		            $scope.flowChartdata.datasets[key].data = $scope.tredata;
 		            if(disableAnimation) options.animation = false;
-		            $scope.flowLineChart = new Chart($scope.ctx).Line($scope.flowChartdata, options);    
+
+		            // animate when last one is rdy, not bulletproof that earlier are fetched already...
+		            if(key >= $scope.flows.length-1)
+		           	 $scope.flowLineChart = new Chart($scope.ctx).Line($scope.flowChartdata, options);    
 
 		        })
 		    })

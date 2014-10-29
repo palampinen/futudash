@@ -41,15 +41,27 @@ h3 {font-size:1.6vw}
 .futucell.white     {background:#fff;color:#339E40;}
 .futucell.dark      {background:#BFC2E6;color:#4F0A59;}
 
-
 .btn-outline{background:transparent;color:#FFF; border:1px solid #FFF; box-shadow:none;
   &:hover, &:active,&:focus {background:rgba(255,255,255,.1);color:#FFF;}
 }
 
+.absolute-left-corner {position:absolute;left:0;top:0;z-index: 99;}
+.visible-on-hover {
+  .toggle{visibility: hidden;display: none;}
+  &:hover,&:active,&:focus {
+    .toggle {visibility:visible;display: inline-block;}
+  }
+}
 .vh-middle {@include vh-middle();}
 .Grid-halfheight {height:50vh}
 
 
+// Weather
+.weathertitle {margin:-4vw 0 0 !important;}
+.weathericon {font-size: 20vw;display:block;margin:0 0 -8vw;}
+
+
+// Blog
 .futucell.blogcell {background-size:cover;background-position:center; color:#fbfa5b;}
 .futucell.blogcell:after {content:'';background:$bg-color;opacity:0.6; display:block;top:0;left:0;position:absolute;width:100%; height:100%;}
 .futucell.blogcell > span {transition:all 0.5s; padding:1% 5%; display:block; text-shadow:0 0 15px rgba(0, 0, 0, 0.3);position:relative;z-index:2;}

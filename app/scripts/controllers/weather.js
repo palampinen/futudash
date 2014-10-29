@@ -28,6 +28,27 @@ angular.module('futudashApp')
       canvas.width = Math.round(height * aspect);
     }
 */
+	// Custom icons
+	$scope.icons = {
+		'01d': 'ion-ios7-sunny-outline',
+		'02d': 'ion-ios7-partlysunny-outline',
+		'03d': 'ion-ios7-cloudy-outline',
+		'04d': 'ion-ios7-cloudy-outline',
+		'09d': 'ion-ios7-rainy-outline',
+		'10d': 'ion-ios7-rainy-outline',
+		'11d': 'ion-ios7-thunderstorm-outline',
+		'13d': 'ion-ios7-snowy',
+		'50d': 'ion-ios7-cloudy-outline',
+		'01n': 'ion-ios7-moon-outline',
+		'02n': 'ion-ios7-cloudy-night-outline',
+		'03n': 'ion-ios7-cloudy-outline',
+		'04n': 'ion-ios7-cloudy-outline',
+		'09n': 'ion-ios7-rainy-outline',
+		'10n': 'ion-ios7-rainy-outline',
+		'13n': 'ion-ios7-thunderstorm-outline',
+		'11n': 'ion-ios7-snowy',
+		'50n': 'ion-ios7-cloudy-outline',
+	}
 
 
 
@@ -83,8 +104,10 @@ angular.module('futudashApp')
 
 	    ];
 
-	    var temperature = document.getElementById("temperature").getContext("2d"),
-	    myDoughnutChart = new Chart(temperature).Doughnut(weather_data,weather_options);
+	    if(document.getElementById("temperature")){
+	    	var temperature = document.getElementById("temperature").getContext("2d"),
+	    	myDoughnutChart = new Chart(temperature).Doughnut(weather_data,weather_options);
+		}	
 	}
 
 

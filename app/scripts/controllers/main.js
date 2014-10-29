@@ -28,13 +28,6 @@ hugeLogic();
 
 
 
-// Time & Date
-var updateTime = function(){
-    $scope.clock    = moment(new Date()).format('HH:mm')
-    $scope.date     = new Date();
-}
-$interval(function() {updateTime()},1000*10);
-updateTime();
 
 
 

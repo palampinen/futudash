@@ -1,15 +1,18 @@
 /* Clock */
 #clock{
-  position:relative;
+  // position:relative;
   // @include vh-middle();
-
+  height: 100%;
+  width: 100%;
   #clock-hours {
     position:relative;
   }
-  #clock-minutes {
-    height: 99%;
-    width: 99%;
-    @include vh-middle();
+  #clock-minutes  {
+    svg{
+      height: 80%;
+      width: 80%;
+      @include vh-middle();
+    }
 
     #clock-seconds {
       color:#fff;

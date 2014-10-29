@@ -27,8 +27,8 @@
 	 		},
 	 		flows: [
 			    {
-			        name:  'tampere',								// flow url key
-			        label: 'Tampere',								// not used atm
+			        name:  'tampere',				// flow url key
+			        label: 'Tampere',				// not used atm
 			        fill:  'rgba(255,255,255,0.3)'	// Bg Color of graph
 			    },
 			    {

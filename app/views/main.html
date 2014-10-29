@@ -4,10 +4,13 @@
   <div class="Grid-cell">
     <div class="Grid Grid-halfheight">
 
-      <div class="Grid-cell futucell" id="temperature-wrap" ng-controller="WeatherCtrl">
+      <div class="Grid-cell futucell visible-on-hover" id="temperature-wrap" ng-controller="WeatherCtrl">
+        <a class="btn btn-lg btn-outline absolute-left-corner toggle" ng-href="#/settings"><i class="icon ion-ios7-gear-outline"></i></a>
 
-        <h1 class="vh-middle">{{weather.main.temp}}ºC<span class="smaller">{{weather.weather[0].description}}</span></h1>
-        <canvas id="temperature" class="vh-middle" width="500" height="500"></canvas>
+        <h1 class="vh-middle weathertitle">
+          <i class="weathericon icon {{icons[weather.weather[0].icon]}}"></i> 
+          {{weather.main.temp}}ºC<span class="smaller">{{weather.weather[0].description}}</span></h1>
+        <!-- <canvas id="temperature" class="vh-middle" width="500" height="500"></canvas> -->
 
       </div>
 
@@ -22,7 +25,7 @@
           <h1>Blog</h1>
           <span class="blog" >
             <h2>{{feed.title}}</h2>
-            <h3><i class="glyphicon glyphicon-time"></i> {{feed.publishedDate}}</h3>
+            <h3><i class="icon ion-ios7-clock-outline"></i> {{feed.publishedDate}}</h3>
             <span ng-bind-html="feed.contentSnippet"></span>
 
             <span class="label label-primary" ng-repeat="cat in feed.categories">{{cat}}</span>
@@ -35,12 +38,14 @@
     <div class="Grid Grid-halfheight ">
 
       <div class="Grid-cell futucell grey" ng-controller="FlowCtrl">
-            <h1 style="padding-left:10%;">FLOWS <br /><span class="smaller">@ {{title}}</span></h1>
+            <h1 style="padding-left:10%;">FLOWS <br /><span class="smaller">of {{title}}</span></h1>
              <canvas id="flowChart" width="500" height="500"></canvas>
       </div>
 
 
-      <div class="Grid-cell futucell">
+      <div class="Grid-cell futucell" ng-controller="ClockCtrl">
+          
+          <div id="clock"></div>
           <h1 class="vh-middle"> {{clock}}
           <span  class="smaller smallest">
           {{['SUN','MON','TUE','WED','THU','FRI','SAT'][date.getDay()]}} 
