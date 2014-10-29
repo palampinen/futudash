@@ -1,0 +1,21 @@
+/* Clock */
+#clock{
+  position:relative;
+  // @include vh-middle();
+
+  #clock-hours {
+    position:relative;
+  }
+  #clock-minutes {
+    height: 99%;
+    width: 99%;
+    @include vh-middle();
+
+    #clock-seconds {
+      color:#fff;
+      font-size: 4em;
+      @include vh-middle();
+    }
+
+  }
+}
