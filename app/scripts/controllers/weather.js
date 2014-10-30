@@ -33,7 +33,7 @@ angular.module('futudashApp')
 		'01d': 'ion-ios7-sunny-outline',
 		'02d': 'ion-ios7-partlysunny-outline',
 		'03d': 'ion-ios7-cloudy-outline',
-		'04d': 'ion-ios7-cloudy-outline',
+		'04d': 'ion-ios7-cloud-outline',
 		'09d': 'ion-ios7-rainy-outline',
 		'10d': 'ion-ios7-rainy-outline',
 		'11d': 'ion-ios7-thunderstorm-outline',

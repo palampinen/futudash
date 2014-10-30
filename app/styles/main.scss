@@ -17,6 +17,7 @@ body{
   //@include background-gradient(#77D4CB,#863DBF); //this is quite cool as well
   //overflow: hidden;
 }
+body.fixed{overflow: hidden;}
 
 h1 {font-size:4vw;font-weight:900;text-transform:uppercase;
   color:#FFF;
@@ -57,14 +58,15 @@ h3 {font-size:1.6vw}
 
 
 // Weather
-.weathertitle {margin:-4vw 0 0 !important;}
-.weathericon {font-size: 20vw;display:block;margin:0 0 -8vw;}
+.weathertitle {margin:-3vw 0 0 !important;}
+.weathericon {font-size: 18vw;display:block;margin:0 0 -6vw;}
 
 
 // Blog
 .futucell.blogcell {background-size:cover;background-position:center; color:#fbfa5b;}
-.futucell.blogcell:after {content:'';background:$bg-color;opacity:0.6; display:block;top:0;left:0;position:absolute;width:100%; height:100%;}
+#bg  {content:'';background:$bg-color;opacity:0.6; display:block;top:0;left:0;position:absolute;width:100%; height:100%;z-index:0;}
 .futucell.blogcell > span {transition:all 0.5s; padding:1% 5%; display:block; text-shadow:0 0 15px rgba(0, 0, 0, 0.3);position:relative;z-index:2;}
+.blogContent {position:relative;z-index:1;}
 .blog {font-size:120%;}
 .blog h2 {font-weight:900;}
 .blog h3 {color:#FFF;font-weight:100;}
@@ -105,8 +107,16 @@ img[src="http://maps.gstatic.com/mapfiles/api-3/images/google_white2.png"], a[hr
 
 
 // Settings
+.navbar {
+  background: rgba(255,255,255,.1);
+  margin:0;
+  padding:1vw 0;
+  a {color:#fff;padding:0 2vw; font-size:4vw;text-decoration: none;text-transform: uppercase;font-weight:100 }
+  h1{margin:1vw 2vw 0 0;padding:0; }
+}
 label {font-weight:900; color:#FFF; text-transform:uppercase;padding-top:10px; display:inline-block;}
-.pull-middle{max-width:400px; display:block; margin:0 auto;}
+.pull-middle{max-width:400px; display:block; margin:2vw auto;}
 .subset {display:block; margin-bottom:20px;}
 .set {padding-bottom:20px; margin-bottom:20px;border-bottom:1px solid rgba(255,255,255,.3);}
 .subset-label {margin-top:20px;display:block; text-align:left; font-size:150%;}
+

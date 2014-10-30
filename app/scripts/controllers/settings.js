@@ -8,17 +8,28 @@
  * Controller of the futudashApp
  */
 angular.module('futudashApp')
-  .controller('SettingsCtrl', function ($scope,Settings) {
+  .controller('SettingsCtrl', function ($scope,$timeout,$location,Settings) {
 
     // Set body bg
-    var bgcolor = Settings.get().color.main || '#555';
-    document.getElementsByTagName("body")[0].style = "overflow:scroll; background-color:"+bgcolor;
+    var loadSettings = function(){
+        var bgcolor = Settings.get().color.main || '#555';
+        document.body.style.backgroundColor = bgcolor;
+        document.body.className = document.body.className.replace('fixed','');
+    }
+    loadSettings();
 
     $scope.settings = Settings.get();
 
+    $scope.$watch('settings',
+        function(a){ console.log(a)}
+        );
+
     $scope.save = function(){
-    	Settings.set($scope.settings)
+    	Settings.set($scope.settings);
     	$scope.settings = Settings.get();
+        $timeout(function(){
+            $location.path('#/')
+        },300)
     }
 
     $scope.restore = function(){

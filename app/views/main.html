@@ -20,8 +20,9 @@
 
 
       <div ng-controller="BlogCtrl" class="Grid-cell futucell even blogcell" style="background-image:url('{{feed.mediaGroups[0].contents[0].url}}')">
+        <span id="bg"></span>
         <img class="pull-right qr" src="https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl={{feed.link}}&chld=L|2" />
-        <span>
+        <span class="blogContent">
           <h1>Blog</h1>
           <span class="blog" >
             <h2>{{feed.title}}</h2>
@@ -38,7 +39,7 @@
     <div class="Grid Grid-halfheight ">
 
       <div class="Grid-cell futucell grey" ng-controller="FlowCtrl">
-            <h1 style="padding-left:10%;">FLOWS <br /><span class="smaller">of {{title}}</span></h1>
+            <h1 style="padding-left:10%;position:relative;z-index:2">FLOWS <br /><span class="smaller">of {{title}}</span></h1>
              <canvas id="flowChart" width="500" height="500"></canvas>
       </div>
 
