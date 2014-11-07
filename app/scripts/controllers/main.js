@@ -11,10 +11,12 @@
  .controller('MainCtrl', function ($scope,$interval,$http,Weather, Settings) {
 
 
+
 // Set body bg
 var bgcolor = Settings.get().color.main || '#555';
-document.getElementsByTagName("body")[0].style = "overflow:hidden; background-color:"+bgcolor;
-
+document.body.style.backgroundColor = bgcolor;
+document.getElementById('bg').style.backgroundColor = bgcolor;
+document.body.className += ' fixed';
 
 // Huge Cell Content Logic
 var hugeLogic = function(){
