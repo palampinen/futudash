@@ -14,6 +14,11 @@
 
       </div>
 
+<!--
+      <div ng-controller="CountdownCtrl" class="Grid-cell futucell even"  > 
+        <div id="countdown" style="width: 400px; height: 400px;">{{countdown}}</div>
+      </div>
+    -->
       <div class="Grid-cell futucell even" style="background:url('http://photos-g.ak.instagram.com/hphotos-ak-xfp1/10432044_656436991114454_1509881228_n.jpg') no-repeat 50% 50%;background-size:cover;" > 
         <!-- this is just bg img -->
       </div>
@@ -39,7 +44,7 @@
     <div class="Grid Grid-halfheight ">
 
       <div class="Grid-cell futucell grey" ng-controller="FlowCtrl">
-            <h1 style="padding-left:10%;position:relative;z-index:2">FLOWS <br /><span class="smaller">of {{title}}</span></h1>
+            <h1 style="padding-left:10%;position:relative;z-index:2">FLOWS <br /><span class="smaller">{{title}}</span></h1>
              <canvas id="flowChart" width="500" height="500"></canvas>
       </div>
 
@@ -58,7 +63,7 @@
       <div class="Grid-cell futucell" id="mapcell" ng-controller="MapCtrl">
         <div id="map-canvas"></div>
         <h1  class="vh-middle">
-          <img src="http://static.flockler.com/assets/futurice/images/futurice-logo--white.svg" />
+          <img ng-src="{{settings.logourl}}" />
         </h1> 
       </div>
     </div>

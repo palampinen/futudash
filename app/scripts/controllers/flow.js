@@ -50,7 +50,7 @@ angular.module('futudashApp')
 
 		    ///Boolean - Whether grid lines are shown across the chart
 		    scaleShowGridLines : false,
-		    scaleFontFamily: 'proxima-nova',
+		    scaleFontFamily: 'Montserrat',
 		    scaleFontSize: 20,
 		    scaleFontStyle: '900',
 		    scaleFontColor: "rgba(0,0,0,.25)",

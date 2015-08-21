@@ -12,6 +12,7 @@
  		get: function(){
  			return JSON.parse( localStorage.getItem('futudash')) || {
 	 		name:'Tampere',
+			logourl: 'http://static.flockler.com/assets/futurice/images/futurice-logo--white.svg',
 	 		coords:{
 	 			lat:61.49861660000001,
 	 			lng:23.757011899999952

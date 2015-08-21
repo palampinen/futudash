@@ -16,12 +16,15 @@ angular.module('futudashApp')
 		.then(function(data) {
 			var el = document.createElement( 'div' );
 			el.innerHTML = data;
-			var sections = el.getElementsByTagName( 'section' );
+			var sections = el.getElementsByClassName( 'menu' );
+
+
 			
 			// filter ones without menu (have class 'missing')
 			sections =_.filter(sections,function(section){
 				return section.innerHTML.indexOf('missing') < 0
 			})
+			
 
 			// convert to string
 			var html = _.map( sections, function(node){

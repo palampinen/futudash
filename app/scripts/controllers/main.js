@@ -11,7 +11,6 @@
  .controller('MainCtrl', function ($scope,$interval,$http,Weather, Settings) {
 
 
-
 // Set body bg
 var bgcolor = Settings.get().color.main || '#555';
 document.body.style.backgroundColor = bgcolor;

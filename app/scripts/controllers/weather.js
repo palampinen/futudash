@@ -59,7 +59,7 @@ angular.module('futudashApp')
 	    // WEATHER
 	    Weather.get().then(function(data){
 	        $scope.weather = data;
-	        $scope.weather.main.temp -= 273.15
+	        $scope.weather.main.temp = Math.round( $scope.weather.main.temp * 10) / 10
 	        startWeatherViz(animate);
 	    },function(data){
 	        console.log('No weather info for you')

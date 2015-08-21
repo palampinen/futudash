@@ -104,6 +104,7 @@
 
 			$http.get(corsURL+'http://api.openweathermap.org/data/2.5/weather',{
 				params:{
+						units:'metric',
 						lat:Settings.get().coords.lat,
 						lon:Settings.get().coords.lng
 				}
@@ -147,6 +148,28 @@
 						flow:flow,
 						limit:limit,
 					}
+			})
+			.success(function(data, status , header, config){
+				deferred.resolve(data)
+			});
+			return deferred.promise;
+		}
+	}
+
+}])
+
+
+/* 
+*	Get JSON
+*/
+.factory('CustomJSON',['$http','$q','corsURL', function($http, $q,corsURL) {
+
+	return {
+		get: function(url,params) {
+			var deferred = $q.defer();
+
+			$http.get(corsURL+url,{
+					params:params
 			})
 			.success(function(data, status , header, config){
 				deferred.resolve(data)

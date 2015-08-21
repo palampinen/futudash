@@ -5,6 +5,7 @@
     <title>Futu your dash away</title>
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="description" content="">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -67,6 +68,8 @@
     <!-- endbower -->
     <!-- endbuild -->  
         <script type='text/javascript' src='//maps.google.com/maps/api/js?sensor=false'></script>
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script type="text/javascript" src="scripts/xml2json.js" charset="UTF-8"></script>
         <script src="scripts/app.js"></script>
@@ -78,6 +81,9 @@
         <script src="scripts/controllers/weather.js"></script>
         <script src="scripts/controllers/map.js"></script>
         <script src="scripts/controllers/flow.js"></script>
+        <script src="scripts/controllers/trends.js"></script>
+        <script src="scripts/controllers/countdown.js"></script>
+        
 
         <script src="scripts/controllers/settings.js"></script>
 
