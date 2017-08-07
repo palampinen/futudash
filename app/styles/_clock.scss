@@ -22,3 +22,56 @@
 
   }
 }
+
+h1 .digital-time.smaller {
+  font-size: 4vw;
+}
+
+
+
+
+
+// Styles for Clock widget
+  .clock {
+    font-size: 9vmin;
+    letter-spacing: -0.1vmin;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    .delimiter {margin:0 -2vmin;position: relative;top:-0.5vmin;}
+    .analog {
+        height: 200px;
+        width: 200px;
+        position: absolute;
+        top:10%;
+        left:10%;
+        height: 80%;
+        width: 80%;
+        .middot {
+            fill: rgba(255,255,255,1);
+            -webkit-filter:drop-shadow(0 1px 2px rgba(0,0,0,.2));
+            filter:drop-shadow(0 1px 2px rgba(0,0,0,.2));
+        }
+        .face {
+            stroke-width: 1px;
+            stroke: #fff;
+            fill: rgba(255,255,255, 0.0);
+        }
+        .hour,.min { }
+        .hour, .min, .sec {
+            stroke-width: 2px;
+            fill:darken(#fff,10%);
+            stroke: darken(#fff,10%);
+         }
+        .sec {
+            stroke-width: 1px;
+            stroke: rgba(0,0,0,.5);
+        }
+        .hourmark {stroke-width:0px;stroke:#ccc; fill:#aaa;}
+    }
+  }
+

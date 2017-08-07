@@ -27,9 +27,8 @@
 						<span class="subset" ng-if="isObjectOrArray(set)" ng-repeat="(j,s) in set  track by j" >
 							<label>{{j}}</label><input type="text" class="form-control input-lg" ng-model="settings[key][i][j]" />
 						</span>
-						
 						<span ng-if="!isObjectOrArray(set)">
-							<label>{{i}}</label> 
+							<label>{{i}}</label>
 							<input type="text" class="form-control input-lg" ng-model="settings[key][i]" />
 						</span>
 					</span>
@@ -44,7 +43,7 @@
 		<br />
 		<button class="btn btn-outline btn-lg btn-block" type="button" ng-click="restore()"> Restore original <i class="icon ion-ios7-undo-outline"></i></button>
 
-		
+
 
 	</form>
 </div>

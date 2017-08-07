@@ -1,0 +1,16 @@
+{
+  "name": "LunchToday",
+  "version": "0.0.1",
+  "engines": {
+    "node": "0.10.x",
+    "npm": "2.1.x"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Pasi Lampinen",
+  "license": "",
+  "dependencies": {
+    "express": "~4.12.4"
+  }
+}

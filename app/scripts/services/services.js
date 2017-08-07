@@ -15,31 +15,28 @@
 */
 .factory('Food', ['$http','$q','Settings','corsURL', function($http, $q, Settings,corsURL) {
 	return {
-		get: function(limit) {
-			
+		get: function() {
 			var day = new Date().getDay();
-			if(!day) day = 7; // sunday is 7 in lounaat.info
+			if (!day) {
+        day = 7; // sunday is 7 in lounaat.info
+      }
 			var url = corsURL+'http://lounaat.info/ajax/filter?view=lahistolla&page=0';
-			
+
 			var deferred = $q.defer();
 			$http.get(url,{
 				params:{
 					day: day,
-					'coords[address]':Settings.address,
-					'coords[lat]':Settings.get().coords.lat,
-					'coords[lng]':Settings.get().coords.lng
+					'coords[address]': Settings.address,
+					'coords[lat]': Settings.get().coords.lat,
+					'coords[lng]': Settings.get().coords.lng
 				}
 			})
-			.success(function(data, status , header, config){
-				//var el = document.createElement( 'div' );
-				//el.innerHTML = data;
-				//var sections = el.getElementsByTagName( 'section' );
-				//sections = sections.slice(0,limit)
+			.success(function(data) {
 				deferred.resolve(data)
 			})
-			.error(function(data, status){
+			.error(function(data){
 				deferred.reject(data);
-			});		
+			});
 			return deferred.promise;
 
 		}
@@ -104,7 +101,8 @@
 
 			$http.get(corsURL+'http://api.openweathermap.org/data/2.5/weather',{
 				params:{
-						units:'metric',
+            APPID: '488e49ee1ce983be59e69292af6c9dd4',
+						units: 'metric',
 						lat:Settings.get().coords.lat,
 						lon:Settings.get().coords.lng
 				}
@@ -125,13 +123,13 @@
 /*
 * Flow data
 * Gets Futurice Flow message activity
-*	http://base.vv.si/api/flow 
+*	http://base.vv.si/api/flow
 *		uses Flowdock messages API https://www.flowdock.com/api/messages
-*		
-*		Parameters: 
+*
+*		Parameters:
 *			limit = [num]				// max 100 per flow, flowdock maximum
 *			flow 	= [flowname]
-* 	
+*
 * 	Result
 *			Object with following structure
 *				[dd.mm.yyyy hh] = [msgcount]
@@ -159,7 +157,7 @@
 }])
 
 
-/* 
+/*
 *	Get JSON
 */
 .factory('CustomJSON',['$http','$q','corsURL', function($http, $q,corsURL) {

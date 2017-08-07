@@ -1,78 +1,6 @@
 <!-- The Grid -->
-<div class="Grid">
-
-  <div class="Grid-cell">
-    <div class="Grid Grid-halfheight">
-
-      <div class="Grid-cell futucell visible-on-hover" id="temperature-wrap" ng-controller="WeatherCtrl">
-        <a class="btn btn-lg btn-outline absolute-left-corner toggle" ng-href="#/settings"><i class="icon ion-ios7-gear-outline"></i></a>
-
-        <h1 class="vh-middle weathertitle">
-          <i class="weathericon icon {{icons[weather.weather[0].icon]}}"></i> 
-          {{weather.main.temp}}ºC<span class="smaller">{{weather.weather[0].description}}</span></h1>
-        <!-- <canvas id="temperature" class="vh-middle" width="500" height="500"></canvas> -->
-
-      </div>
-
-
-
-      <!-- <div ng-controller="TrendCtrl" class="Grid-cell futucell even"  > 
-        <div id="trend_div" style="width: 400px; height: 400px;"></div>
-      </div> -->
-
-
-      <div class="Grid-cell futucell even" style="background:url('http://photos-g.ak.instagram.com/hphotos-ak-xfp1/10432044_656436991114454_1509881228_n.jpg') no-repeat 50% 50%;background-size:cover;" > 
-        <!-- this is just bg img -->
-      </div>
-
-
-      <div ng-controller="BlogCtrl" class="Grid-cell futucell even blogcell" style="background-image:url('{{feed.mediaGroups[0].contents[0].url}}')">
-        <span id="bg"></span>
-        <img class="pull-right qr" src="https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl={{feed.link}}&chld=L|2" />
-        <span class="blogContent">
-          <h1>Blog</h1>
-          <span class="blog" >
-            <h2>{{feed.title}}</h2>
-            <h3><i class="icon ion-ios7-clock-outline"></i> {{feed.publishedDate}}</h3>
-            <span ng-bind-html="feed.contentSnippet"></span>
-
-            <span class="label label-primary" ng-repeat="cat in feed.categories">{{cat}}</span>
-          </span>
-        </span>
-      </div>
-
-    </div>
-
-    <div class="Grid Grid-halfheight ">
-
-      <div class="Grid-cell futucell grey" ng-controller="FlowCtrl">
-            <h1 style="padding-left:10%;position:relative;z-index:2">FLOWS <br /><span class="smaller">{{title}}</span></h1>
-
-             <canvas id="flowChart" width="500" height="500"></canvas>
-      </div>
-
-
-      <div class="Grid-cell futucell" ng-controller="ClockCtrl">
-          
-          <div id="clock"></div>
-          <h1 class="vh-middle"> {{clock}}
-          <span  class="smaller smallest">
-          {{['SUN','MON','TUE','WED','THU','FRI','SAT'][date.getDay()]}} 
-          {{['JAN','FEB','MARCH','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'][date.getMonth()]}} {{date.getDate()}} 
-          </span>
-        </h1>
-      </div>
-
-      <div class="Grid-cell futucell" id="mapcell" ng-controller="MapCtrl">
-        <div id="map-canvas"></div>
-        <h1  class="vh-middle">
-          <img ng-src="{{settings.logourl}}" />
-        </h1> 
-      </div>
-    </div>
-  </div>
-
-  <div class="Grid-cell futucell u-1of4" ng-switch on="hugeContent">
+<div class="Grid" style="background-color:{{bgcolor}}">
+  <div class="Grid-cell futucell u-1of3" ng-switch on="hugeContent">
 
     <span ng-switch-when="movie" ng-controller="MovieCtrl">
 
@@ -91,8 +19,12 @@
 
     <span ng-switch-when="food" ng-controller="FoodCtrl">
       {{test}}
-      <h1 class="foodtitle">FOOD</h1>
-      <div ng-bind-html="food" class="foods"></div>
+      <h1 class="foodtitle">Lunch Today</h1>
+
+      <div class="foods loading" ng-if="foodLoading">Loading Food...</div>
+
+      <div ng-bind-html="foodData" class="foods"></div>
+
     </span>
 
   </div>

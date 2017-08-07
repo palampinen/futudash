@@ -10,28 +10,25 @@
  angular.module('futudashApp')
  .controller('MainCtrl', function ($scope,$interval,$http,Weather, Settings) {
 
+  // Set body bg
+  var bgcolor = Settings.get().color.main || '#555';
 
-// Set body bg
-var bgcolor = Settings.get().color.main || '#555';
-document.body.style.backgroundColor = bgcolor;
-document.getElementById('bg').style.backgroundColor = bgcolor;
-document.body.className += ' fixed';
+  // document.body.style.backgroundColor = bgcolor;
+  // document.getElementById('bg').style.backgroundColor = bgcolor;
+  document.body.className += ' fixed';
+  $scope.bgcolor = bgcolor;
 
-// Huge Cell Content Logic
-var hugeLogic = function(){
-    $scope.hugeContent = ( new Date().getHours() > 14 || new Date().getDay() == 0 || new Date().getDay() == 6) ?  'movie' : 'food';
-    console.log('now showing ',$scope.hugeContent)
-}
+  // Huge Cell Content Logic
+  var hugeLogic = function(){
+    var isEvening = new Date().getHours() > 14;
+    var isWeekend = new Date().getDay() == 0 || new Date().getDay() == 6;
 
-// check 10 min interval if changing
-$interval(hugeLogic,1000*60*10);
-hugeLogic();
+    // $scope.hugeContent = (isEvening || isWeekend) ?  'movie' : 'food';
+    $scope.hugeContent = 'food';
+  }
 
-
-
-
-
-
-
+  // check 10 min interval if changing
+  $interval(hugeLogic, 1000*60*10);
+  hugeLogic();
 
 });

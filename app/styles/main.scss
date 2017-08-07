@@ -9,21 +9,23 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import "_huge.scss";
 
 
-//$bg-color: #863DBF;
-$bg-color: #77D4CB;
+$bg-color: #ffffff;
 
 body{
-  background:$bg-color;
+  background: $bg-color;
   //@include background-gradient(#77D4CB,#863DBF); //this is quite cool as well
   //overflow: hidden;
 }
 body.fixed{overflow: hidden;}
 
-h1 {font-size:4vw;font-weight:900;text-transform:uppercase;
-  color:#FFF;
+h1 {
+  font-size:4vw;
+  font-weight:200;
+  text-transform: capitalize;
+  color:#493691;
 	.smaller {color:rgba(0,0,0,.5); font-size:2vw;display:block;}
 }
-h1.vh-middle {font-size:4.5vw;font-weight:900; text-align:center; margin:0;padding:0;}
+h1.vh-middle {font-size:4.5vw;font-weight:200; text-align:center; margin:0;padding:0;}
 h2 {font-size:2vw}
 h3 {font-size:1.6vw}
 
@@ -32,15 +34,15 @@ h3 {font-size:1.6vw}
 .logo {width:20vmin;float:right;margin:5vmin;opacity:1;}
 .center {text-align:center;}
 
-.futucell           {background:transparent;color:#fff;overflow:hidden;border:none;height:100%;position:relative;}
-.futucell.even      {background:rgba(255,255,255,.05);}
-.futucell.orange    {background:#FFF0D1;color:#FF821F; background:transparent;color:rgba(0, 0, 0, 0.5);}
-.futucell.grey      {background:rgba(0,0,0,.1);color:#fff;}
-.futucell.lightgreen{background:#E6F5DB;color:#00594A;}
-.futucell.green     {background:#339E40;color:#fff;}
-.futucell.purple    {background:#4F0A59;color:#BFC2E6;}
-.futucell.white     {background:#fff;color:#339E40;}
-.futucell.dark      {background:#BFC2E6;color:#4F0A59;}
+.futucell           { background:transparent;color:#493691;overflow:hidden;border:none;height:100%;position:relative; }
+.futucell.even      { background:rgba(255,255,255,.05); }
+.futucell.orange    { background:#FFF0D1;color:#FF821F; background:transparent;color:rgba(0, 0, 0, 0.5); }
+.futucell.grey      { background:rgba(0,0,0,.1);color:#493691; }
+.futucell.lightgreen{ background:#E6F5DB;color:#00594A; }
+.futucell.green     { background:#339E40;color:#493691; }
+.futucell.purple    { background:#4F0A59;color:#BFC2E6; }
+.futucell.white     { background:#fff;color:#339E40; }
+.futucell.dark      { background:#BFC2E6;color:#4F0A59; }
 
 .btn-outline{background:transparent;color:#FFF; border:1px solid #FFF; box-shadow:none;
   &:hover, &:active,&:focus {background:rgba(255,255,255,.1);color:#FFF;}
@@ -58,18 +60,26 @@ h3 {font-size:1.6vw}
 
 
 // Weather
-.weathertitle {margin:-3vw 0 0 !important;}
-.weathericon {font-size: 18vw;display:block;margin:0 0 -6vw;}
+.weathertitle {margin:-4vw 0 0 !important;}
+.weathericon {font-size: 18vw;display:block;margin:0 0 -5vw;}
 
 
 // Blog
-.futucell.blogcell {background-size:cover;background-position:center; color:#fbfa5b;}
-#bg  {content:'';background:$bg-color;opacity:0.6; display:block;top:0;left:0;position:absolute;width:100%; height:100%;z-index:0;}
-.futucell.blogcell > span {transition:all 0.5s; padding:1% 5%; display:block; text-shadow:0 0 15px rgba(0, 0, 0, 0.3);position:relative;z-index:2;}
+.futucell.blogcell {background-size:cover;background-position:center; color: #eee;}
+#bg {content:'';background:$bg-color;opacity:0.6; display:block;top:0;left:0;position:absolute;width:100%; height:100%;z-index:0;}
+.futucell.blogcell > span {transition:all 0.5s; padding:1% 5%; display:block; /*text-shadow:0 0 15px rgba(0, 0, 0, 0.3); */ position:relative;z-index:2;}
 .blogContent {position:relative;z-index:1;}
 .blog {font-size:120%;}
-.blog h2 {font-weight:900;}
+.blog h2 {font-weight:400; font-size: 20px; margin: 0 0 5px; }
 .blog h3 {color:#FFF;font-weight:100;}
+.blog p {
+  margin: 0 0 5px;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: normal;
+  color: rgba(255,255,255,.7);
+  strong {color: #FFF;}
+ }
 .blogcell .qr {position: absolute;left:0;bottom:0;width:18%;z-index: 3;}
 .clock-wrap {height:40vh;width:40vh;@include vh-middle();}
 
@@ -90,6 +100,22 @@ h3 {font-size:1.6vw}
     }
 
 
+// Static img
+.cell--static-img {
+  position:relative;
+  .img {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    opacity: 0.5;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+  }
+}
+
 // Map
 #mapcell {
   img {width:12vw;display:block;}
@@ -101,8 +127,18 @@ h3 {font-size:1.6vw}
 .gmnoprint div {
     background:none !important;
 }
-img[src="http://maps.gstatic.com/mapfiles/api-3/images/google_white2.png"], a[href^="http://maps.google.com/maps"]{
+img[src="http://maps.gstatic.com/mapfiles/api-3/images/google_white.png"],
+img[src="http://maps.gstatic.com/mapfiles/api-3/images/google_white2.png"],
+img[src="http://maps.gstatic.com/mapfiles/api-3/images/google_white3.png"],
+img[src="http://maps.gstatic.com/mapfiles/api-3/images/google_white4.png"],
+img[src="http://maps.gstatic.com/mapfiles/api-3/images/google_white5.png"],
+img[src="http://maps.gstatic.com/mapfiles/api-3/images/google_white6.png"],
+a[href^="https://maps.google.com/maps"] {
     display:none !important;
+}
+#mapcell div.gmnoprint,
+#mapcell div.gmnoscreen {
+    display: none;
 }
 
 
