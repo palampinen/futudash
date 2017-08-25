@@ -41,9 +41,7 @@
   			        fill:  'rgba(0,0,0,0.15)'
   			    }
   			]
-			})
-
-      console.log(settings);
+			});
 
       return settings;
  		},
