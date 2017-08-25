@@ -1,16 +1,13 @@
-futudash
+Futudash - Lunch screen
 ========
 
-Dashboard
+![Lunch screen](https://raw.githubusercontent.com/palampinen/futudash/lunchlist/screenshot.png)
 
-Feed:
-- Weather
-- Flowdock activity
-- movies
-- food
-- clock
-- rss
-- google maps
+Dashboard project showing lunches and movies
+
+* Lunches from lounaat.info
+* Movies from Finnkino
 
 
-AngularJS, Bootstrap, Ionicons
+## Tech
+Angular1 & Ionicons
