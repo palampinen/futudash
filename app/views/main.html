@@ -1,6 +1,6 @@
 <!-- The Grid -->
 <div class="Grid" style="background-color:{{bgcolor}}">
-  <div class="Grid-cell futucell u-1of3" ng-switch on="hugeContent">
+  <div class="Grid-cell futucell u-1of3 maincell" ng-switch="mainContent">
 
     <span ng-switch-when="movie" ng-controller="MovieCtrl">
 
@@ -9,19 +9,22 @@
       <div class="movies">
         <div class="item clearfix" ng-repeat="(name,movie) in movies track by name | orderBy:'name':false | filter:filterStartedMovies(movie)" >
           <span class="img" style="background-image:url('{{movie[0].Images.EventSmallImageLandscape}}');"></span>
-          <h3>{{movie[0].Title}}</h3>
-          <span class="showtimes">
-           <span class="showtime" ng-repeat="show in movie | filter:filterStartedShows"> {{getTime(show.dttmShowStart)}}</span>
-          </span>
+          <div class="movie-content">
+            <h3>{{movie[0].Title}}</h3>
+            <span class="showtimes">
+              <span class="showtime" ng-repeat="show in movie | filter:filterStartedShows">
+                {{getTime(show.dttmShowStart)}}
+              </span>
+            </span>
+          </div>
         </div>
       </div>
     </span>
 
-    <span ng-switch-when="food" ng-controller="FoodCtrl">
-      {{test}}
+    <span ng-switch-default ng-controller="FoodCtrl">
       <h1 class="foodtitle">Lunch Today</h1>
 
-      <div class="foods loading" ng-if="foodLoading">Loading Food...</div>
+      <div class="foods loading" ng-if="foodLoading"><span>Loading Lunch places..</span></div>
 
       <div ng-bind-html="foodData" class="foods"></div>
 
