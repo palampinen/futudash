@@ -1,0 +1,30 @@
+.maincell.futucell {
+  background: #fff;
+  background: #493691;
+  background: linear-gradient(135deg, #493691, rgba(#493691,.97));
+
+}
+
+.foods.loading {
+  text-align: center;
+  font-size: 4vw;
+  color: rgba(#FFDCDC, .9);
+
+  font-weight: 100;
+  margin: 0 auto;
+
+  min-height: 100vh;
+  width: 100%;
+  height: 100%;
+  span {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+
+  }
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+}

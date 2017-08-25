@@ -1,11 +1,17 @@
 .foodtitle {
   font-size: 2vw;
   color: #444;
-  margin-left: 1.5%;
-  margin-bottom: 1vw;
+  margin: 0;
   padding-bottom:0;
   font-weight: 400;
   text-align: center;
+
+  display: flex;
+  height: 8vh;
+  align-items: center;
+  justify-content: center;
+
+  display: none;
 }
 
 .smaller.right {
@@ -17,13 +23,6 @@
 }
 
 
-.foods.loading {
-  text-align: center;
-  font-size: 5vw;
-  color: rgba(0, 0, 0, .5);
-  font-weight: 200;
-  margin: 25vh auto;
-}
 
 .foods, .movies {
   .item:nth-child(1n+13) {
@@ -32,8 +31,12 @@
   }
 
   .item {
-    padding: 1.5% 8% 1.5% 1.5%;
+    -webkit-font-smoothing: antialiased;
+    padding: 0% 6% 0% 2%;
 
+    width: 33.33%;
+    height: 290px;
+    height: 33.33vh;
 
     font-size: 1vw;
     line-height: 1.25;
@@ -41,27 +44,51 @@
     position: relative;
     min-height: 2vw;
     display: inline-block;
-    width: 33.33%;
     margin: 0;
     background: rgba(255, 255, 255, 0);
-    height: 290px;
     float: left;
+    overflow: hidden;
 
-    p{ margin:0 0 0.4vw;}
-    h3 {margin:0;text-transform:uppercase; font-weight:600; font-size:110%; color:rgba(0,0,0,.6); white-space:nowrap; text-overflow:ellipsis; overflow:hidden; max-width:12vw;}
+    p {
+      margin:0 0 0.4vw;
+      font-weight: 400;
+    }
+
+    p.dish {
+      text-transform: lowercase;
+      &:first-letter {
+        text-transform: uppercase;
+      }
+    }
+    h3 {
+      margin:0;
+      padding: 0;
+
+      text-transform:uppercase;
+      font-size:130%;
+
+      color:rgba(0,0,0,.6);
+      white-space:nowrap;
+      text-overflow:ellipsis;
+      overflow:hidden;
+    }
   }
 
   .item:nth-child(2n) {
-    background:rgba(0,0,0,.025);
+    background: rgba(#493691, .8);
   }
 
   .item-header{
+    margin-top: 3.4vh;
     a {
-      color: #444;
+      color: $title-color;
       margin-bottom: 5px;
       display: block;
+      font-weight: bold;
+      margin-bottom: 2.5vh;
     }
-    .details,.tags {display:none;}
+
+    .icon, .details,.tags {display:none;}
   }
   .item-body {
     margin-top:0.3vw;
@@ -72,6 +99,10 @@
       margin:0; padding:0;
       li {list-style:none;}
     }
+
+    .offer-block {
+      display: none;
+    }
   }
   .item-footer {
     p:nth-child(2) {display:none;}
@@ -79,49 +110,27 @@
   .dist {
     float:right;
     display:inline-block;
-    color: #666;
+    color: #aaa;
     background:transparent;
-    border:2px solid #666;
+    // border:2px solid #666;
 
-    height: 5vw;
-    width: 5vw;
-    line-height: 5vw;
-    line-height: calc(5vw - 4px);
+    // height: 5vw;
+    // width: 5vw;
+    // line-height: 5vw;
+    // line-height: calc(5vw - 4px);
+    // margin: 1.5vw 1.5vw !important;
+
+    // border-radius: 50%;
+    // -webkit-border-radius: 50%;
 
     padding:0;
-    margin: 1.5vw 1.5vw !important;
     font-weight: 300;
-    border-radius: 50%;
-    -webkit-border-radius: 50%;
+    color: rgba(#fff, .6);
+
     position:absolute;
-    right: 0px;
-    top: 0px;
+    right: 4vh;
+    top: 3.15vh;
     text-align:center;
     font-size: 1.4em;
    }
-}
-
-.foods{
-  .item { min-height:3vw;
-     h3 { max-width:20vw; }
-  }
-
-}
-
-.movies{
-
-  .item:nth-child(1n+13) {display:block; visibility:visible;}
-  .item {
-    line-height: 1.6vw;
-    h3 {float:left;line-height:1.6vw;}
-    .showtimes {float:right;
-      .showtime{font-weight:400; display:inline-block; line-height:1.3em; margin-left:10px; font-size:93%;}
-      .showtime:first-child {margin:0;}
-    }
-    .img{
-      margin:-1% 2.5% -1% 0;
-      float:left;display:inline-block;height:2vw; width:2vw;background:rgba(0,0,0,.1); border-radius:50%;overflow:hidden;text-align:center;
-      background-size:cover; background-position:50% 50%;
-    }
-  }
 }

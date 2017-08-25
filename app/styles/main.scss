@@ -1,5 +1,11 @@
 $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
 // bower:scss
+
+$bg-color: #ffffff;
+$title-color: #FFDCDC;
+$text-color:  #fff;
+
+
 @import "_variables.scss";
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 @import "_mixins.scss";
@@ -7,9 +13,9 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import "_hexagon.scss";
 @import "_clock.scss";
 @import "_huge.scss";
+@import "_container.scss";
+@import "_movies.scss";
 
-
-$bg-color: #ffffff;
 
 body{
   background: $bg-color;
@@ -34,7 +40,7 @@ h3 {font-size:1.6vw}
 .logo {width:20vmin;float:right;margin:5vmin;opacity:1;}
 .center {text-align:center;}
 
-.futucell           { background:transparent;color:#493691;overflow:hidden;border:none;height:100%;position:relative; }
+.futucell           { background:transparent;color:#fbfbfb;overflow:hidden;border:none;height:100%;position:relative; }
 .futucell.even      { background:rgba(255,255,255,.05); }
 .futucell.orange    { background:#FFF0D1;color:#FF821F; background:transparent;color:rgba(0, 0, 0, 0.5); }
 .futucell.grey      { background:rgba(0,0,0,.1);color:#493691; }
@@ -85,19 +91,19 @@ h3 {font-size:1.6vw}
 
 
 // Canvas
-    canvas{
-        width: 90% !important;
-        max-width: 800px;
-        height: auto !important;
-    }
-    canvas#temperature{
-    	width: 80% !important;
-      opacity: 0.6;
-    }
-    canvas#flowChart{
-    	position: absolute;left:1%;bottom:1%;
-    	width:98%;
-    }
+canvas{
+  width: 90% !important;
+  max-width: 800px;
+  height: auto !important;
+}
+canvas#temperature{
+ width: 80% !important;
+ opacity: 0.6;
+}
+canvas#flowChart{
+ position: absolute;left:1%;bottom:1%;
+ width:98%;
+}
 
 
 // Static img
