@@ -10,23 +10,23 @@
 angular.module('futudashApp')
   .controller('MapCtrl', function ($scope,$rootScope,$interval,Settings) {
 
-  	$scope.settings = Settings.get();
+ //  	$scope.settings = Settings.get();
 
-	$scope.initialize = function() {
-	    var styles = [{"featureType":"landscape","elementType":"all","stylers":[{"color":$scope.settings.color.main}]},{"featureType":"water","elementType":"geometry.fill","stylers":[{"color":Settings.get().color.light}]},{"featureType":"road","elementType":"all","stylers":[{"visibility":"on"},{"color":Settings.get().color.dark}]},{"featureType":"poi.park","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.school","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.sports_complex","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.business","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.attraction","elementType":"all","stylers":[{"visibility":"off"}]}];
-	    var mapOptions = {
-	      center: { lat: parseFloat($scope.settings.coords.lat), lng: parseFloat($scope.settings.coords.lng)},
-	      zoom: 14,
-	      disableDefaultUI: true
+	// $scope.initialize = function() {
+	//     var styles = [{"featureType":"landscape","elementType":"all","stylers":[{"color":$scope.settings.color.main}]},{"featureType":"water","elementType":"geometry.fill","stylers":[{"color":Settings.get().color.light}]},{"featureType":"road","elementType":"all","stylers":[{"visibility":"on"},{"color":Settings.get().color.dark}]},{"featureType":"poi.park","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.school","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.sports_complex","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.business","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.attraction","elementType":"all","stylers":[{"visibility":"off"}]}];
+	//     var mapOptions = {
+	//       center: { lat: parseFloat($scope.settings.coords.lat), lng: parseFloat($scope.settings.coords.lng)},
+	//       zoom: 14,
+	//       disableDefaultUI: true
 
-	  };
-	  var map = new google.maps.Map(document.getElementById('map-canvas'),
-	    mapOptions);
+	//   };
+	//   var map = new google.maps.Map(document.getElementById('map-canvas'),
+	//     mapOptions);
 
-	  map.setOptions({styles: styles});
-	}
+	//   map.setOptions({styles: styles});
+	// }
 
-	$scope.initialize();
+	// $scope.initialize();
 	//google.maps.event.addDomListener(window, 'load', initialize);
 
 

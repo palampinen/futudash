@@ -8,7 +8,7 @@
  * Controller of the futudashApp
  */
  angular.module('futudashApp')
- .controller('MainCtrl', function ($scope,$interval,$http,Weather, Settings) {
+ .controller('MainCtrl', function ($scope, $interval, $http, Weather, Settings) {
 
   // Set body bg
   var bgcolor = Settings.get().color.main || '#555';
@@ -19,16 +19,16 @@
   $scope.bgcolor = bgcolor;
 
   // Huge Cell Content Logic
-  var hugeLogic = function(){
-    var isEvening = new Date().getHours() > 14;
-    var isWeekend = new Date().getDay() == 0 || new Date().getDay() == 6;
+  var showMainContent = function(){
+    var now = new Date();
+    var isEvening = now.getHours() > 14;
+    var isWeekend = now.getDay() == 0 || now.getDay() == 6;
 
-    // $scope.hugeContent = (isEvening || isWeekend) ?  'movie' : 'food';
-    $scope.hugeContent = 'food';
+    $scope.mainContent = (isEvening || isWeekend) ?  'movie' : 'food';
   }
 
-  // check 10 min interval if changing
-  $interval(hugeLogic, 1000*60*10);
-  hugeLogic();
+  // check 10 min interval if changed
+  $interval(showMainContent, 1000 * 60 * 10);
+  showMainContent();
 
 });
